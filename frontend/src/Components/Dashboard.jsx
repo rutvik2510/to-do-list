@@ -9,6 +9,7 @@ import UpadateUserProfile from '../SettingUserinfo/UpdateUserProfile'
 import MyTask from '../Task/MyTask'
 import TaskInfoShow from '../Task/TaskInfoShow'
 import VitalTask from '../Task/VitalTask'
+import  './Sidebar.css'
 import axios from 'axios';
 import { 
   Squares2X2Icon, 
@@ -76,14 +77,14 @@ const Dashboard = () => {
         </button>
 
         {/* Sidebar */}
-        <div className={`min-h-full bg-red-500 text-white flex flex-col items-center p-5 transition-all duration-300 fixed md:relative z-40 ${isOpen ? "w-64" : "w-0"} md:w-64`}>
+        <div className={`Sidebar min-h-full bg-red-500 text-white flex flex-col items-center p-5 transition-all duration-300 fixed md:relative z-40 ${isOpen ? "w-64" : "w-0"} md:w-64`}>
           {/* Profile Section */}
-          <div className="flex flex-col items-center space-y-4 mb-8">
+          <div className="ProfileInfo mr-40 mb-20">
             {/* Profile Picture */}
             {profileData.profilepic && (
-          <div className="w-16 h-16">
+          <div className="">
             <img
-              className="w-full h-full rounded-full object-cover"
+              className=" profilePic "
               src={profileData.profilepic ? `http://localhost:5000${profileData.profilepic}` : '/Group 76 (2).png'}
               alt="Task"
             />
@@ -94,7 +95,7 @@ const Dashboard = () => {
             ) : error ? (
               <p className="text-red-300">{error}</p>
             ) : (
-              <div className="text-center">
+              <div className="text-center mt-28">
                 <h2 className="text-lg font-semibold">{profileData.UserName}</h2>
                 <p className="text-sm">{profileData.email}</p>
               </div>
